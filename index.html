@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Croatia Yacht Trip 2026</title>
+<style>
+:root{
+  --navy:#12314a;
+  --deep:#0a2234;
+  --teal:#2c7775;
+  --sea:#dcefee;
+  --sand:#f5efe4;
+  --gold:#d0a75b;
+  --ink:#1b2a35;
+  --muted:#6d7a83;
+  --white:#ffffff;
+  --green:#2f7d58;
+  --amber:#a66d13;
+  --blue:#376d8b;
+  --slate:#51606d;
+  --shadow:0 14px 36px rgba(16,46,70,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial, Helvetica, sans-serif;color:var(--ink);background:#fbfcfc;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.hero{
+  min-height:760px;
+  color:#fff;
+  position:relative;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(113,195,193,.35), transparent 28%),
+    linear-gradient(135deg, rgba(8,30,45,.98), rgba(16,61,75,.92)),
+    linear-gradient(180deg,#12314a,#2c7775);
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute; inset:auto -10% -20% -10%; height:52%;
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,.22) 0 1px, transparent 2px) 0 0/24px 24px,
+    linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0));
+  transform:skewY(-4deg);
+}
+.nav{position:relative;z-index:3;max-width:1180px;margin:auto;padding:28px 28px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:700;letter-spacing:.13em;font-size:.86rem;white-space:nowrap}
+.nav-links{display:flex;gap:28px;font-size:.92rem;color:rgba(255,255,255,.82);overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{white-space:nowrap}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:auto;padding:116px 28px 80px}
+.eyebrow,.kicker{letter-spacing:.16em;font-weight:700;font-size:.78rem;color:var(--teal)}
+.hero .eyebrow{color:#9bd6d3}
+h1,h2{font-family:Georgia, "Times New Roman", serif}
+h1{font-size:clamp(4rem,9vw,7.5rem);line-height:.95;margin:18px 0 24px;max-width:900px}
+.hero-copy{font-size:1.22rem;max-width:700px;color:rgba(255,255,255,.82)}
+.hero-actions{display:flex;gap:14px;margin:34px 0 52px}
+.btn{display:inline-flex;padding:14px 22px;border-radius:999px;font-weight:700}
+.btn-primary{background:var(--gold);color:var(--deep)}
+.btn-ghost{border:1px solid rgba(255,255,255,.45)}
+.route-strip{display:flex;flex-wrap:wrap;gap:11px;align-items:center;color:rgba(255,255,255,.72);font-size:.93rem}
+.route-strip i{font-style:normal;color:#8cccca}
+.section{max-width:1180px;margin:0 auto;padding:96px 28px}
+.section-heading{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:36px}
+h2{font-size:clamp(2.25rem,5vw,4rem);line-height:1.05;margin:8px 0}
+.status-pill{background:var(--sea);color:var(--teal);border-radius:999px;padding:10px 16px;font-size:.84rem;font-weight:700}
+.overview{margin-top:-72px;position:relative;z-index:4;background:#fff;border-radius:28px;box-shadow:var(--shadow)}
+.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat-card{padding:28px;border:1px solid #e7ecef;border-radius:18px}
+.stat-number{font-family:"Playfair Display";font-size:3.2rem;line-height:1;color:var(--navy)}
+.stat-label{color:var(--muted);margin-top:8px}
+.callout{margin-top:24px;background:var(--sand);border-radius:16px;padding:20px 22px}
+.timeline{display:grid;gap:18px}
+.day-card{position:relative;display:grid;grid-template-columns:84px 1fr auto;gap:24px;align-items:center;background:#fff;border:1px solid #e6ebee;border-radius:20px;padding:22px;box-shadow:0 7px 20px rgba(18,49,74,.05)}
+.day-card:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:5px;border-radius:0 6px 6px 0;background:var(--teal)}
+.day-card.planned:before{background:var(--blue)}
+.day-card.timing:before{background:var(--amber)}
+.day-card.owned:before{background:var(--slate)}
+.day-card.party-card{overflow:hidden;border-color:#d9c49d;background:linear-gradient(105deg,#fff 0 72%,#f3e2bd 72%)}
+.day-card.party-card:before{z-index:2;background:linear-gradient(180deg,#f7f3e9 0 33%,#18242b 33% 66%,#bd843a 66%)}
+.day-card.party-card:after{
+  content:"";
+  position:absolute;inset:0 0 0 auto;width:28%;pointer-events:none;opacity:.68;
+  background:
+    radial-gradient(ellipse at 18% 18%,#33281f 0 7%,transparent 8%),
+    radial-gradient(ellipse at 66% 25%,#6c4729 0 8%,#2c241d 9% 12%,transparent 13%),
+    radial-gradient(ellipse at 38% 55%,#2c241d 0 6%,#875b31 7% 11%,transparent 12%),
+    radial-gradient(ellipse at 82% 72%,#33281f 0 7%,transparent 8%),
+    radial-gradient(ellipse at 12% 88%,#7c512d 0 8%,#2c241d 9% 12%,transparent 13%);
+  background-size:92px 82px;
+  transform:rotate(-7deg) scale(1.18);
+}
+.party-card > *{position:relative;z-index:1}
+.party-card .location{color:#875b31}
+.party-card .date-block strong{color:#18242b}
+.party-card .party-title{font-family:Georgia,"Times New Roman",serif;font-size:1.48rem}
+.dress-code{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 8px}
+.dress-option{display:inline-flex;align-items:center;gap:7px;border:1px solid #d7d0c3;border-radius:999px;padding:6px 10px;background:rgba(255,255,255,.88);font-size:.76rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.dress-option:before{content:"";width:12px;height:12px;border-radius:50%;border:1px solid rgba(27,42,53,.2)}
+.dress-option.white:before{background:#fff}
+.dress-option.black:before{background:#18242b}
+.dress-option.cheetah:before{background:radial-gradient(circle at 35% 35%,#2c241d 0 19%,transparent 21%),radial-gradient(circle at 70% 68%,#2c241d 0 17%,transparent 19%),#c68b42}
+.party-joke{display:block;color:#875b31;font-size:.88rem;font-weight:700;margin-bottom:6px}
+.date-block{text-align:center;border-right:1px solid #e7ecef;padding-right:22px}
+.date-block span,.date-block small{display:block;color:var(--muted);font-weight:700;font-size:.72rem;letter-spacing:.14em}
+.date-block strong{font-family:"Playfair Display";font-size:2.75rem;line-height:1;color:var(--navy)}
+.day-topline{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.location{font-weight:700;color:var(--teal)}
+.owner{font-size:.82rem;background:#eff4f5;border-radius:999px;padding:5px 10px;color:var(--slate)}
+.day-main h3{font-size:1.35rem;margin:6px 0 8px}
+.day-main ul{margin:0;padding-left:18px;color:var(--muted)}
+.badge{font-size:.75rem;font-weight:800;border-radius:999px;padding:8px 12px;white-space:nowrap}
+.badge-green{background:#e4f2ea;color:var(--green)}
+.badge-blue{background:#e5eff5;color:var(--blue)}
+.badge-amber{background:#fff1d9;color:var(--amber)}
+.badge-slate{background:#edf0f2;color:var(--slate)}
+.split-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
+.reservation-list{background:#fff;border-radius:22px;border:1px solid #e6ebee;overflow:hidden}
+.reservation-row{display:flex;justify-content:space-between;gap:20px;padding:20px 24px;border-bottom:1px solid #edf1f3}
+.reservation-row:last-child{border-bottom:0}
+.reservation-row div{display:flex;flex-direction:column}
+.reservation-row span{color:var(--muted);font-size:.86rem}
+.reservation-row b{color:var(--teal)}
+.open-panel{background:var(--navy);color:#fff;border-radius:24px;padding:36px}
+.kicker.light{color:#9bd6d3}
+.open-panel h2{font-size:2.65rem}
+.open-panel ol{list-style:none;padding:0;margin:28px 0 0}
+.open-panel li{display:flex;gap:15px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.open-panel li span{color:#9bd6d3;font-size:.78rem;font-weight:700}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.info-card{background:#fff;border:1px solid #e6ebee;border-radius:20px;padding:26px}
+.icon{font-size:1.7rem}
+.info-card h3{margin:10px 0 8px}
+.info-card p{color:var(--muted);margin:7px 0}
+.info-card .muted{font-size:.86rem;color:var(--amber)}
+.destinations{background:linear-gradient(180deg,#f5f9f8,#eef5f4);max-width:none;padding-left:max(28px,calc((100% - 1124px)/2));padding-right:max(28px,calc((100% - 1124px)/2))}
+.destination-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.destination-grid article{min-height:180px;background:#fff;border-radius:18px;padding:24px;border:1px solid #dfebe9}
+.destination-grid h3{color:var(--teal);font-size:1.25rem}
+.destination-grid p{color:var(--muted)}
+.document-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.document-card{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #e5eaed;border-radius:16px;padding:20px}
+.document-card small{display:block;color:var(--muted);margin-top:3px}
+.doc-icon{font-weight:800;font-size:.72rem;color:#fff;background:var(--teal);border-radius:8px;padding:9px}
+.placeholder{opacity:.82}
+.documents-note{color:var(--muted);margin-top:18px}
+footer{background:var(--deep);color:#fff;padding:42px max(28px,calc((100% - 1124px)/2));display:flex;justify-content:space-between;gap:30px;align-items:center}
+footer p{color:rgba(255,255,255,.62);margin:4px 0 0}
+
+@media(max-width:900px){
+  .nav-links{gap:18px;font-size:.85rem}
+  .overview{margin:0;border-radius:0;box-shadow:none}
+  .overview-grid{grid-template-columns:repeat(2,1fr)}
+  .split-layout,.info-grid{grid-template-columns:1fr}
+  .destination-grid,.document-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .hero{min-height:650px}
+  .hero-inner{padding-top:84px}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .section{padding:70px 18px}
+  .section-heading{display:block}
+  .status-pill{display:inline-block;margin-top:12px}
+  .day-card{grid-template-columns:62px 1fr;gap:14px}
+  .day-card.party-card{background:linear-gradient(105deg,#fff 0 84%,#f3e2bd 84%)}
+  .day-card.party-card:after{width:18%;opacity:.45}
+  .badge{grid-column:2;justify-self:start}
+  .date-block{padding-right:12px}
+  .date-block strong{font-size:2rem}
+  .overview-grid,.destination-grid,.document-grid{grid-template-columns:1fr}
+  footer{display:block}
+  footer a{display:inline-block;margin-top:18px}
+}
+
+</style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav">
+      <div class="brand">NAUTILUS · CROATIA 2026</div>
+      <div class="nav-links">
+        <a href="#itinerary">Itinerary</a>
+        <a href="#reservations">Reservations</a>
+        <a href="#boat">Boat Guide</a>
+        <a href="#documents">Documents</a>
+      </div>
+    </nav>
+
+    <div class="hero-inner">
+      <div class="eyebrow">AUGUST 14–22, 2026 · 14 GUESTS</div>
+      <h1>Croatia Yacht Trip</h1>
+      <p class="hero-copy">
+        One living home for the route, reservations, day owners, boat details,
+        packing notes, and everything the group needs before and during the trip.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#itinerary">View the trip</a>
+        <a class="btn btn-ghost" href="#open-items">See what’s still open</a>
+      </div>
+      <div class="route-strip">
+        <span>Split</span><i>→</i><span>Šolta</span><i>→</i><span>Vis</span><i>→</i>
+        <span>Šćedro</span><i>→</i><span>Korčula</span><i>→</i><span>Hvar</span><i>→</i>
+        <span>Milna</span><i>→</i><span>Split</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section overview">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">TRIP AT A GLANCE</span>
+          <h2>The week, simplified</h2>
+        </div>
+        <div class="status-pill">Living itinerary · Updated Aug 4</div>
+      </div>
+
+      <div class="overview-grid">
+        <article class="stat-card">
+          <div class="stat-number">9</div>
+          <div class="stat-label">Days</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-number">14</div>
+          <div class="stat-label">Guests</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-number">7</div>
+          <div class="stat-label">Island stops</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Onboard dinners</div>
+        </article>
+      </div>
+
+      <div class="callout">
+        <strong>How to use this site:</strong>
+        Each day has an owner. Confirmed items stay visible; open items are clearly marked.
+        The site can be updated as timing and boat details are finalized.
+      </div>
+    </section>
+
+    <section class="section" id="itinerary">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">DAILY ITINERARY</span>
+          <h2>Where we’ll be and who owns the day</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <article class="day-card confirmed">
+          <div class="date-block"><span>FRI</span><strong>14</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Split</span><span class="owner">Owner: Yaakov</span></div>
+            <h3>Arrival night & Keaton’s birthday</h3>
+            <ul>
+              <li>Arrive in Split and check in</li>
+              <li><strong>Restaurant Adriatic · 8:00 PM</strong></li>
+              <li>Boiler Room Club afterward</li>
+            </ul>
+          </div>
+          <span class="badge badge-green">Confirmed</span>
+        </article>
+
+        <article class="day-card confirmed">
+          <div class="date-block"><span>SAT</span><strong>15</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Šolta</span><span class="owner">Owner: Nick</span></div>
+            <h3>Board Nautilus & first island night</h3>
+            <ul>
+              <li>Board, settle in, cruise and swim</li>
+              <li><strong>Martinis Marchi · 8:30 PM</strong></li>
+              <li>Table confirmed for 14 · no deposit required</li>
+              <li>Day before: reserve the yacht berth through marina reception and reconfirm arrival</li>
+            </ul>
+          </div>
+          <span class="badge badge-green">Confirmed</span>
+        </article>
+
+        <article class="day-card confirmed">
+          <div class="date-block"><span>SUN</span><strong>16</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Vis</span><span class="owner">Owner: Nick</span></div>
+            <h3>Swim, explore & sunset dinner</h3>
+            <ul>
+              <li>Boat and swim time</li>
+              <li>Explore Vis Town</li>
+              <li><strong>Fort George · 8:30 PM</strong></li>
+            </ul>
+          </div>
+          <span class="badge badge-green">Confirmed</span>
+        </article>
+
+        <article class="day-card planned party-card">
+          <div class="date-block"><span>MON</span><strong>17</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Šćedro</span><span class="owner">Owners: Jake & Sonya</span></div>
+            <h3 class="party-title">Sonya’s birthday · Black, White & Wild Party</h3>
+            <div class="dress-code" aria-label="Dress code: all white, all black, or cheetah print">
+              <span class="dress-option white">All white</span>
+              <span class="dress-option black">All black</span>
+              <span class="dress-option cheetah">Cheetah clause</span>
+            </div>
+            <span class="party-joke">Cheetah print is officially considered a neutral. We don’t make the rules.</span>
+            <ul>
+              <li>Relaxed boat day and swimming</li>
+              <li><strong>Black, white or cheetah party onboard</strong></li>
+              <li>Dinner onboard</li>
+            </ul>
+          </div>
+          <span class="badge badge-blue">Dress wildly</span>
+        </article>
+
+        <article class="day-card confirmed">
+          <div class="date-block"><span>TUE</span><strong>18</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Korčula</span><span class="owner">Owner: Neal</span></div>
+            <h3>Meredith’s birthday · Wine tour & Old Town dinner</h3>
+            <ul>
+              <li><strong>Wine tour · 11:00 AM – 3:30 PM</strong></li>
+              <li>Explore Korčula Old Town</li>
+              <li><strong>Filippi · 7:30 PM</strong></li>
+            </ul>
+          </div>
+          <span class="badge badge-green">Confirmed</span>
+        </article>
+
+        <article class="day-card confirmed">
+          <div class="date-block"><span>WED</span><strong>19</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Hvar</span><span class="owner">Owner: Rahul</span></div>
+            <h3>Hula Hula sunset & Don Quijote dinner</h3>
+            <ul>
+              <li>Explore Hvar Town</li>
+              <li><strong>Hula Hula regular table</strong></li>
+              <li>Drinks, food and sunset</li>
+              <li><strong>Don Quijote · 8:00 PM</strong></li>
+              <li>Backup dinner reservation retained</li>
+            </ul>
+          </div>
+          <span class="badge badge-green">Confirmed</span>
+        </article>
+
+        <article class="day-card owned">
+          <div class="date-block"><span>THU</span><strong>20</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Hvar</span><span class="owner">Owner: Rahul</span></div>
+            <h3>Dress-up dinner & club night</h3>
+            <ul>
+              <li>Relaxed day and time on the boat</li>
+              <li>Formal dinner coordinated by Rahul</li>
+              <li>Back to the boat, then club around 1–2 AM</li>
+            </ul>
+          </div>
+          <span class="badge badge-slate">Owned</span>
+        </article>
+
+        <article class="day-card planned">
+          <div class="date-block"><span>FRI</span><strong>21</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Milna</span><span class="owner">Owner: Group / Crew</span></div>
+            <h3>Recovery day & final night onboard</h3>
+            <ul>
+              <li>Swimming and final yacht day</li>
+              <li>Group toast and crew thank-you</li>
+              <li><strong>Dinner onboard</strong></li>
+            </ul>
+          </div>
+          <span class="badge badge-blue">Planned</span>
+        </article>
+
+        <article class="day-card planned">
+          <div class="date-block"><span>SAT</span><strong>22</strong><small>AUG</small></div>
+          <div class="day-main">
+            <div class="day-topline"><span class="location">Split</span><span class="owner">Owner: Group / Crew</span></div>
+            <h3>Return & disembark</h3>
+            <ul>
+              <li>Breakfast and packing</li>
+              <li>Review onboard costs and gratuity</li>
+              <li>Disembark in Split</li>
+            </ul>
+          </div>
+          <span class="badge badge-blue">Planned</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-layout" id="reservations">
+      <div>
+        <span class="kicker">RESERVATIONS</span>
+        <h2>Confirmed plans</h2>
+        <div class="reservation-list">
+          <div class="reservation-row"><div><strong>Restaurant Adriatic</strong><span>Split · Friday</span></div><b>8:00 PM</b></div>
+          <div class="reservation-row"><div><strong>Martinis Marchi</strong><span>Šolta · Saturday · 14 guests · no deposit</span></div><b>8:30 PM</b></div>
+          <div class="reservation-row"><div><strong>Fort George</strong><span>Vis · Sunday</span></div><b>8:30 PM</b></div>
+          <div class="reservation-row"><div><strong>Korčula wine tour</strong><span>Tuesday</span></div><b>11:00 AM – 3:30 PM</b></div>
+          <div class="reservation-row"><div><strong>Filippi</strong><span>Korčula · Tuesday</span></div><b>7:30 PM</b></div>
+          <div class="reservation-row"><div><strong>Hula Hula</strong><span>Hvar · Wednesday</span></div><b>Regular table</b></div>
+          <div class="reservation-row"><div><strong>Don Quijote</strong><span>Hvar · Wednesday · backup reservation retained</span></div><b>8:00 PM</b></div>
+        </div>
+      </div>
+
+      <div class="open-panel" id="open-items">
+        <span class="kicker light">OPEN ITEMS</span>
+        <h2>What still needs confirmation</h2>
+        <ol>
+          <li><span>01</span>Friday, Aug 14: reserve the yacht berth through marina reception and reconfirm arrival with Martinis Marchi</li>
+          <li><span>02</span>Black, white or cheetah party details with the crew</li>
+          <li><span>03</span>Monday and Friday onboard dinner confirmation</li>
+          <li><span>04</span>Water-toy pricing</li>
+          <li><span>05</span>Aperol and St-Germain package confirmation</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="boat">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">BOAT GUIDE</span>
+          <h2>What the group should know</h2>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <div class="icon">🍽️</div>
+          <h3>Meal plan</h3>
+          <p><strong>Half board selected:</strong> breakfast and lunch onboard daily.</p>
+          <p>Additional onboard dinners: Monday and Friday.</p>
+        </article>
+
+        <article class="info-card">
+          <div class="icon">🍸</div>
+          <h3>Drinks package</h3>
+          <p><strong>Premium package selected.</strong></p>
+          <p>Croatian wine and beer, water, soft drinks, Bombay Sapphire, Absolut, Jameson, Johnnie Walker Red and Jose Cuervo.</p>
+          <p class="muted">Aperol and St-Germain confirmation pending.</p>
+        </article>
+
+        <article class="info-card">
+          <div class="icon">🧳</div>
+          <h3>Luggage</h3>
+          <p>Soft-sided luggage is strongly recommended because it is easier to store onboard.</p>
+        </article>
+
+        <article class="info-card">
+          <div class="icon">🔌</div>
+          <h3>Power & appliances</h3>
+          <p>Bring European power adapters. Hair dryers are available onboard.</p>
+        </article>
+
+        <article class="info-card">
+          <div class="icon">👕</div>
+          <h3>Laundry</h3>
+          <p>Laundry is generally unavailable. A compact travel steamer is recommended.</p>
+        </article>
+
+        <article class="info-card">
+          <div class="icon">🌊</div>
+          <h3>Water toys</h3>
+          <p>Pricing is still pending for SeaBob, eFoil and Jet Ski options.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section destinations">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">DESTINATION NOTES</span>
+          <h2>What each stop is best for</h2>
+        </div>
+      </div>
+
+      <div class="destination-grid">
+        <article><h3>Split</h3><p>Historic old town, the Riva, arrival-night dinner and nightlife.</p></article>
+        <article><h3>Šolta</h3><p>A soft first yacht day: swimming, marina time and dinner ashore.</p></article>
+        <article><h3>Vis</h3><p>Authentic island atmosphere, harbor wandering and Fort George at sunset.</p></article>
+        <article><h3>Šćedro</h3><p>The dedicated boat day: coves, swimming and Sonya’s black, white or cheetah-print birthday party.</p></article>
+        <article><h3>Korčula</h3><p>Wine country, medieval streets and a polished waterfront dinner.</p></article>
+        <article><h3>Hvar</h3><p>Beach bars, shopping, sunset drinks, dress-up dinner and club night.</p></article>
+        <article><h3>Milna</h3><p>A slower final day, one last swim and dinner onboard.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="documents">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">DOCUMENTS</span>
+          <h2>Trip files in one place</h2>
+        </div>
+      </div>
+
+      <div class="document-grid">
+        <a class="document-card placeholder" href="#">
+          <span class="doc-icon">PDF</span>
+          <div><strong>Boarding pass</strong><small>To be added when received</small></div>
+        </a>
+        <a class="document-card placeholder" href="#">
+          <span class="doc-icon">PDF</span>
+          <div><strong>Guest preference sheet</strong><small>Boat planning file</small></div>
+        </a>
+        <a class="document-card placeholder" href="#">
+          <span class="doc-icon">PDF</span>
+          <div><strong>Packing guide</strong><small>To be added</small></div>
+        </a>
+        <a class="document-card placeholder" href="#">
+          <span class="doc-icon">PDF</span>
+          <div><strong>Menus & confirmations</strong><small>Restaurant and boat files</small></div>
+        </a>
+      </div>
+      <p class="documents-note">
+        Boarding passes, menus and boat confirmations will show up here as they come in.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Croatia Yacht Trip · August 2026</strong>
+      <p>Built as a living group itinerary. Details may shift with weather and captain guidance.</p>
+    </div>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script>
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", function(e) {
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+</script>
+</body>
+</html>
