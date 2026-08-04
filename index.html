@@ -66,12 +66,66 @@ const data=[
 {icon:'⚓',d:'Day 8',date:'Fri, Aug 21',loc:'Milna',title:'Friday, August 21',label:'Final yacht day · group toast',intro:'Slow down for the final full yacht day, one last swim, a group toast and a relaxed final night onboard.',a:['Swimming and final yacht day','Keep the afternoon flexible','Group toast and crew thank-you','Dinner onboard'],res:'Final Night Onboard',time:'Friday evening',q:'Milna Croatia',img:imgs.day8},
 {icon:'▣',d:'Day 9',date:'Sat, Aug 22',loc:'Split',title:'Saturday, August 22',label:'Return to Split · departures',intro:'Disembark in Split, coordinate luggage and departures, and close out the trip without a rushed final morning.',a:['Breakfast and packing','Review onboard costs and gratuity','Disembark in Split','Coordinate airport and onward travel'],res:'Check Out',time:'Saturday morning',q:'Split Croatia',img:imgs.day9}
 ];
-const days=document.getElementById('days'),photo=document.getElementById('photo'),hero=document.querySelector('.hero');
+const els={
+  days:document.getElementById('days'),
+  photo:document.getElementById('photo'),
+  hero:document.querySelector('.hero'),
+  eyebrow:document.getElementById('eyebrow'),
+  title:document.getElementById('title'),
+  place:document.getElementById('place'),
+  intro:document.getElementById('intro'),
+  activities:document.getElementById('activities'),
+  resName:document.getElementById('resName'),
+  resTime:document.getElementById('resTime'),
+  map:document.getElementById('map'),
+  photoLabel:document.getElementById('photoLabel'),
+  prev:document.getElementById('prev'),
+  next:document.getElementById('next')
+};
 let current=0;
-hero.style.backgroundImage=`url('${imgs.hero||data[0].img}')`;
-data.forEach((x,i)=>{const b=document.createElement('button');b.className='day'+(i===0?' active':'');b.innerHTML=`<span class="icon">${x.icon}</span><span><span class="dname">${x.d}</span><span class="dmeta">${x.date}</span><span class="dloc">${x.loc}</span></span><img class="thumb" src="${x.img}" alt="">`;b.onclick=()=>show(i);days.appendChild(b)});
-function show(i){current=i;const x=data[i];[...days.children].forEach((b,j)=>b.classList.toggle('active',i===j));eyebrow.textContent=`${x.d} · ${x.date}`;title.textContent=x.title;place.textContent='●  '+x.loc;intro.textContent=x.intro;activities.innerHTML=x.a.map(v=>`<li><span class="check">✓</span><span>${v}</span></li>`).join('');resName.textContent=x.res;resTime.textContent=x.time;map.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.q);photoLabel.textContent=x.label;photo.style.opacity=.25;const preload=new Image();preload.onload=()=>{photo.src=x.img;photo.style.opacity=1};preload.src=x.img;prev.disabled=i===0;next.disabled=i===data.length-1;if(window.innerWidth<1050){days.children[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'})}}
-prev.onclick=()=>show(Math.max(0,current-1));next.onclick=()=>show(Math.min(data.length-1,current+1));show(0);
+function validImage(src){return typeof src==='string'&&src.length>20}
+const fallbackImage=validImage(imgs.hero)?imgs.hero:(validImage(data[0].img)?data[0].img:'');
+if(fallbackImage) els.hero.style.backgroundImage=`url('${fallbackImage}')`;
+data.forEach((x,i)=>{
+  const b=document.createElement('button');
+  b.type='button';
+  b.className='day'+(i===0?' active':'');
+  b.setAttribute('aria-label',`${x.d}: ${x.loc}`);
+  const thumb=validImage(x.img)?`<img class="thumb" src="${x.img}" alt="" loading="lazy">`:'';
+  b.innerHTML=`<span class="icon">${x.icon}</span><span><span class="dname">${x.d}</span><span class="dmeta">${x.date}</span><span class="dloc">${x.loc}</span></span>${thumb}`;
+  b.addEventListener('click',()=>show(i));
+  els.days.appendChild(b);
+});
+function show(i){
+  if(!Number.isInteger(i)||i<0||i>=data.length)return;
+  current=i;
+  const x=data[i];
+  [...els.days.children].forEach((b,j)=>b.classList.toggle('active',i===j));
+  els.eyebrow.textContent=`${x.d} · ${x.date}`;
+  els.title.textContent=x.title;
+  els.place.textContent='●  '+x.loc;
+  els.intro.textContent=x.intro;
+  els.activities.innerHTML=x.a.map(v=>`<li><span class="check">✓</span><span>${v}</span></li>`).join('');
+  els.resName.textContent=x.res;
+  els.resTime.textContent=x.time;
+  els.map.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.q);
+  els.photoLabel.textContent=x.label;
+  if(validImage(x.img)){
+    els.photo.style.opacity=.25;
+    const preload=new Image();
+    preload.onload=()=>{els.photo.src=x.img;els.photo.style.opacity=1};
+    preload.onerror=()=>{els.photo.style.opacity=1};
+    preload.src=x.img;
+  }
+  els.prev.disabled=i===0;
+  els.next.disabled=i===data.length-1;
+  if(window.innerWidth<1050&&els.days.children[i]){
+    els.days.children[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  }
+}
+els.prev.addEventListener('click',()=>show(Math.max(0,current-1)));
+els.next.addEventListener('click',()=>show(Math.min(data.length-1,current+1)));
+show(0);
 </script>
 </body>
 </html>
