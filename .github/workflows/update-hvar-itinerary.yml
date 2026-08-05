@@ -1,0 +1,47 @@
+name: Update Hvar itinerary
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-hvar-itinerary.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Wednesday and Thursday plans
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+            'Hvar at its best: town time, Hula Hula, sunset drinks and dinner at Don Quijote.': 'Hvar at its best: town time followed by sunset drinks and dinner at Hula Hula.',
+            '<ul class="activities"><li><span class="check">✓</span><span>Explore Hvar Town</span></li><li><span class="check">✓</span><span>Hula Hula regular table</span></li><li><span class="check">✓</span><span>Drinks, food and sunset</span></li><li><span class="check">✓</span><span>Don Quijote at 8:00 PM</span></li></ul>': '<ul class="activities"><li><span class="check">✓</span><span>Explore Hvar Town</span></li><li><span class="check">✓</span><span>Head to Hula Hula for drinks</span></li><li><span class="check">✓</span><span>Sunset and dinner at Hula Hula</span></li><li><span class="check">✓</span><span>Keep the evening flexible after dinner</span></li></ul>',
+            '<span>Plan highlight</span><strong>Don Quijote</strong><div>Wednesday, August 19 · 8:00 PM</div>\n          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Don%20Quijote%20Hvar%20Croatia">View on Google Maps ↗</a>': '<span>Plan highlight</span><strong>Drinks & Dinner at Hula Hula</strong><div>Wednesday, August 19 · sunset</div>\n          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hula%20Hula%20Hvar%20Croatia">View on Google Maps ↗</a>',
+            '<div class="photo-shade"></div><div class="photo-label">Hula Hula sunset · dinner in Hvar</div>': '<div class="photo-shade"></div><div class="photo-label">Hula Hula · drinks, sunset and dinner</div>',
+            'A relaxed yacht day that turns into the dress-up dinner and late-night club evening coordinated by Rahul.': 'A relaxed yacht day that turns into dinner at Don Quijote at 8:00 PM, followed by a late-night club evening coordinated by Rahul.',
+            '<ul class="activities"><li><span class="check">✓</span><span>Relaxed day on the boat</span></li><li><span class="check">✓</span><span>Get ready for the coordinated dinner look</span></li><li><span class="check">✓</span><span>Formal dinner with the group</span></li><li><span class="check">✓</span><span>Club around 1–2 AM</span></li></ul>': '<ul class="activities"><li><span class="check">✓</span><span>Relaxed day on the boat</span></li><li><span class="check">✓</span><span>Get ready for the coordinated dinner look</span></li><li><span class="check">✓</span><span>Don Quijote at 8:00 PM</span></li><li><span class="check">✓</span><span>Club around 1–2 AM</span></li></ul>',
+            '<span>Plan highlight</span><strong>Dress-up Dinner</strong><div>Details coordinated by Rahul</div>\n          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hvar%20Croatia">View on Google Maps ↗</a>': '<span>Plan highlight</span><strong>Don Quijote</strong><div>Thursday, August 20 · 8:00 PM</div>\n          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Don%20Quijote%20Hvar%20Croatia">View on Google Maps ↗</a>',
+            '<div class="photo-shade"></div><div class="photo-label">Dress-up dinner · late-night club</div>': '<div class="photo-shade"></div><div class="photo-label">Don Quijote dinner · late-night club</div>'
+          }
+          changed = 0
+          for old, new in replacements.items():
+            if old in s:
+              s = s.replace(old, new)
+              changed += 1
+          if changed < 8:
+            raise SystemExit(f'Only {changed}/8 replacements matched; refusing partial update')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update Hvar Wednesday and Thursday plans"
+          git push
