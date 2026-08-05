@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Croatia Trip 2026</title>
+<meta name="description" content="The shared day-by-day itinerary for our August 2026 Croatia yacht trip.">
+<meta name="theme-color" content="#092a45">
 <style>
 :root{--navy:#092a45;--teal:#147d80;--gold:#d6a24d;--ink:#10243a;--muted:#67757f;--line:#dfe5e7;--shadow:0 22px 60px rgba(10,38,58,.14)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f7f3eb 0,#fafaf8 480px);color:var(--ink);font-family:Inter,Arial,sans-serif}a{text-decoration:none;color:inherit}
@@ -17,6 +19,8 @@
 .photo-wrap{position:relative;border-radius:14px;overflow:hidden;min-height:596px;background:#dbe7e7}.photo{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}.photo-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(5,25,39,.17));pointer-events:none}.photo-label{position:absolute;left:18px;bottom:18px;background:rgba(7,33,52,.76);color:#fff;border:1px solid rgba(255,255,255,.18);padding:10px 13px;border-radius:999px;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase}
 .controls{display:flex;justify-content:space-between;gap:12px;margin-top:14px}.control{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:10px 15px;font-weight:800;cursor:pointer}.control.disabled{opacity:.35;cursor:default}
 .route{display:grid;grid-template-columns:1.45fr 1fr 1fr;gap:14px;margin-top:15px}.route-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px 19px;min-height:92px;box-shadow:0 10px 28px rgba(10,38,58,.06)}.route-card.dark{background:var(--navy);color:#fff}.route-card span{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--gold)}.route-card strong{display:block;margin-top:8px;font-size:.88rem;line-height:1.38}.footer{text-align:center;color:#68767e;font-size:.8rem;padding:0 20px 38px}
+.day-tab:focus-visible,.control:focus-visible,.map:focus-visible,.nav a:focus-visible,.route-card a:focus-visible{outline:3px solid rgba(214,162,77,.72);outline-offset:3px}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 #select-day-1:checked ~ .site .panel-1{display:grid}
 #select-day-1:checked ~ .site label[for="select-day-1"]{background:#eaf6f5;color:#0b6668}
 #select-day-2:checked ~ .site .panel-2{display:grid}
@@ -35,8 +39,9 @@
 #select-day-8:checked ~ .site label[for="select-day-8"]{background:#eaf6f5;color:#0b6668}
 #select-day-9:checked ~ .site .panel-9{display:grid}
 #select-day-9:checked ~ .site label[for="select-day-9"]{background:#eaf6f5;color:#0b6668}
-@media(max-width:1050px){.layout{grid-template-columns:1fr}.sidebar{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.sidebar-title{min-width:180px}.day-tab{min-width:205px;grid-template-columns:28px minmax(0,1fr);scroll-snap-align:start}.day-tab img{display:none}.day-panel{grid-template-columns:1fr}.photo-wrap{min-height:520px;order:-1}.copy{padding:27px}.route{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){.hero{height:285px}.nav{height:68px;padding:0 18px}.links,.group{display:none}.brand{font-size:1rem}.brand-icon{font-size:1.6rem}.hero-title{padding:38px 22px}.hero h1{font-size:clamp(3.25rem,14vw,4.7rem);white-space:nowrap}.hero p{font-size:.86rem;letter-spacing:.15em}.shell{padding:14px 10px 34px;margin:-18px auto 0}.sidebar-title{display:none}.day-tab{min-width:182px;padding:14px 12px}.panel{padding:9px}.photo-wrap{min-height:390px}.copy{padding:23px 18px 20px}.copy h2{font-size:2.7rem}.route{grid-template-columns:1fr}}
+@media(max-width:1050px){.layout{grid-template-columns:1fr;position:relative}.sidebar{display:flex;position:sticky;top:0;z-index:30;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scrollbar-width:none;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 12px 32px rgba(10,38,58,.13)}.sidebar::-webkit-scrollbar{display:none}.sidebar-title{min-width:180px}.day-tab{flex:0 0 190px;min-width:190px;grid-template-columns:28px minmax(0,1fr);scroll-snap-align:center;scroll-snap-stop:always}.day-tab img{display:none}.day-panel{grid-template-columns:1fr}.photo-wrap{min-height:520px;order:-1}.copy{padding:27px}.route{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.hero{height:285px}.nav{height:68px;padding:0 18px}.links,.group{display:none}.brand{font-size:1rem}.brand-icon{font-size:1.6rem}.hero-title{padding:38px 22px}.hero h1{font-size:clamp(3.25rem,14vw,4.7rem);white-space:nowrap}.hero p{font-size:.86rem;letter-spacing:.15em}.shell{padding:14px 10px 34px;margin:-18px auto 0}.sidebar{top:0;border-radius:16px;margin-bottom:12px}.sidebar-title{display:none}.day-tab{flex-basis:154px;min-width:154px;padding:12px 10px}.day-tab strong{font-size:.86rem}.day-tab small{font-size:.63rem}.day-tab em{font-size:.75rem}.panel{padding:9px}.photo-wrap{min-height:390px}.copy{padding:23px 18px 20px}.copy h2{font-size:2.7rem}.route{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.day-tab{transition:none}}
 </style>
 </head>
 <body>
@@ -56,50 +61,50 @@
 </header>
 <main class="shell" id="itinerary">
   <div class="layout">
-    <aside class="sidebar"><div class="sidebar-title"><strong>Daily itinerary</strong><span>Select a day to see the current plan.</span></div><label class="day-tab" for="select-day-1">
+    <aside class="sidebar" aria-label="Choose an itinerary day"><div class="sidebar-title"><strong>Daily itinerary</strong><span>Select a day to see the current plan.</span></div><label class="day-tab" for="select-day-1">
       <span class="icon">●</span>
       <span><strong>Day 1</strong><small>Fri, Aug 14</small><em>Split</em></span>
-      <img src="keaton-birthday.webp" alt="">
+      <img src="keaton-birthday.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-2">
       <span class="icon">⛵</span>
       <span><strong>Day 2</strong><small>Sat, Aug 15</small><em>Šolta</em></span>
-      <img src="day1.webp" alt="">
+      <img src="day1.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-3">
       <span class="icon">≈</span>
       <span><strong>Day 3</strong><small>Sun, Aug 16</small><em>Vis</em></span>
-      <img src="anniversary-nick-matilda.webp" alt="">
+      <img src="anniversary-nick-matilda.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-4">
       <span class="icon">✦</span>
       <span><strong>Day 4</strong><small>Mon, Aug 17</small><em>Šćedro</em></span>
-      <img src="day3.webp" alt="">
+      <img src="day3.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-5">
       <span class="icon">♢</span>
       <span><strong>Day 5</strong><small>Tue, Aug 18</small><em>Korčula</em></span>
-      <img src="meredith-birthday.webp" alt="">
+      <img src="meredith-birthday.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-6">
       <span class="icon">♪</span>
       <span><strong>Day 6</strong><small>Wed, Aug 19</small><em>Hvar</em></span>
-      <img src="day4.webp" alt="">
+      <img src="day4.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-7">
       <span class="icon">✧</span>
       <span><strong>Day 7</strong><small>Thu, Aug 20</small><em>Hvar</em></span>
-      <img src="day5.webp" alt="">
+      <img src="day5.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-8">
       <span class="icon">⚓</span>
       <span><strong>Day 8</strong><small>Fri, Aug 21</small><em>Milna</em></span>
-      <img src="day2.webp" alt="">
+      <img src="day2.webp" alt="" loading="lazy" decoding="async">
     </label>
 <label class="day-tab" for="select-day-9">
       <span class="icon">▣</span>
       <span><strong>Day 9</strong><small>Sat, Aug 22</small><em>Split</em></span>
-      <img src="day9.webp" alt="">
+      <img src="day9.webp" alt="" loading="lazy" decoding="async">
     </label></aside>
     <section class="panel"><article class="day-panel panel-1">
       <div class="copy">
@@ -116,7 +121,7 @@
         <div class="controls"><span class="control disabled">← Previous day</span><label class="control" for="select-day-2">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="keaton-birthday.webp" alt="Keaton’s birthday · Split dinner and club night">
+        <img class="photo" src="keaton-birthday.webp" alt="Keaton’s birthday · Split dinner and club night" fetchpriority="high" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Keaton’s birthday · Split dinner and club night</div>
       </div>
     </article>
@@ -135,7 +140,7 @@
         <div class="controls"><label class="control" for="select-day-1">← Previous day</label><label class="control" for="select-day-3">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="day1.webp" alt="Board Nautilus · first island night">
+        <img class="photo" src="day1.webp" alt="Board Nautilus · first island night" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Board Nautilus · first island night</div>
       </div>
     </article>
@@ -154,7 +159,7 @@
         <div class="controls"><label class="control" for="select-day-2">← Previous day</label><label class="control" for="select-day-4">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="anniversary-nick-matilda.webp" alt="Nick and Matilda’s anniversary · Fort George sunset dinner">
+        <img class="photo" src="anniversary-nick-matilda.webp" alt="Nick and Matilda’s anniversary · Fort George sunset dinner" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Nick & Matilda’s anniversary · Fort George</div>
       </div>
     </article>
@@ -173,7 +178,7 @@
         <div class="controls"><label class="control" for="select-day-3">← Previous day</label><label class="control" for="select-day-5">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="day3.webp" alt="Black, White and Boat Games">
+        <img class="photo" src="day3.webp" alt="Black, White and Boat Games" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Black, White and Boat Games</div>
       </div>
     </article>
@@ -192,7 +197,7 @@
         <div class="controls"><label class="control" for="select-day-4">← Previous day</label><label class="control" for="select-day-6">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="meredith-birthday.webp" alt="Meredith’s birthday · winery celebration">
+        <img class="photo" src="meredith-birthday.webp" alt="Meredith’s birthday · winery celebration" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Meredith’s birthday · winery celebration</div>
       </div>
     </article>
@@ -211,7 +216,7 @@
         <div class="controls"><label class="control" for="select-day-5">← Previous day</label><label class="control" for="select-day-7">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="day4.webp" alt="Hula Hula sunset · dinner in Hvar">
+        <img class="photo" src="day4.webp" alt="Hula Hula sunset · dinner in Hvar" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Hula Hula · drinks, sunset and dinner</div>
       </div>
     </article>
@@ -230,7 +235,7 @@
         <div class="controls"><label class="control" for="select-day-6">← Previous day</label><label class="control" for="select-day-8">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="day5.webp" alt="Dress-up dinner · late-night club">
+        <img class="photo" src="day5.webp" alt="Dress-up dinner · late-night club" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Don Quijote dinner · late-night club</div>
       </div>
     </article>
@@ -249,7 +254,7 @@
         <div class="controls"><label class="control" for="select-day-7">← Previous day</label><label class="control" for="select-day-9">Next day →</label></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="day2.webp" alt="Final yacht day · group toast">
+        <img class="photo" src="day2.webp" alt="Final yacht day · group toast" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Final yacht day · group toast</div>
       </div>
     </article>
@@ -268,7 +273,7 @@
         <div class="controls"><label class="control" for="select-day-8">← Previous day</label><span class="control disabled">Next day →</span></div>
       </div>
       <div class="photo-wrap">
-        <img class="photo" src="day9.webp" alt="Return to Split · departures">
+        <img class="photo" src="day9.webp" alt="Return to Split · departures" loading="lazy" decoding="async">
         <div class="photo-shade"></div><div class="photo-label">Return to Split · departures</div>
       </div>
     </article></section>
@@ -278,4 +283,55 @@
 <div class="footer">Plans may adjust with weather and captain guidance. Reservations reflect the current itinerary.</div>
 </div>
 
+<script>
+(function(){
+  const radios=Array.from(document.querySelectorAll('.day-radio'));
+  const tabs=Array.from(document.querySelectorAll('.day-tab'));
+  const panels=Array.from(document.querySelectorAll('.day-panel'));
+  const selector=document.querySelector('.sidebar');
+  const panelShell=document.querySelector('.panel');
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function motion(){return reduceMotion.matches?'auto':'smooth'}
+  function activate(index,moveFocus,returnToCard){
+    const radio=radios[index];
+    if(!radio)return;
+    radio.checked=true;
+    tabs.forEach((tab,i)=>{
+      const active=i===index;
+      tab.setAttribute('aria-selected',String(active));
+      tab.setAttribute('tabindex',active?'0':'-1');
+    });
+    panels.forEach((panel,i)=>panel.setAttribute('aria-hidden',String(i!==index)));
+    if(window.innerWidth<=1050){
+      tabs[index].scrollIntoView({behavior:motion(),block:'nearest',inline:'center'});
+    }
+    if(moveFocus)tabs[index].focus({preventScroll:true});
+    if(returnToCard&&panelShell){
+      const offset=window.innerWidth<=1050?(selector.offsetHeight+12):24;
+      const top=panelShell.getBoundingClientRect().top+window.scrollY-offset;
+      window.scrollTo({top:Math.max(0,top),behavior:motion()});
+    }
+  }
+
+  tabs.forEach((tab,index)=>{
+    tab.setAttribute('role','tab');
+    tab.setAttribute('aria-controls','itinerary-day-'+(index+1));
+    tab.addEventListener('keydown',event=>{
+      let next=index;
+      if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+      else if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+      else if(event.key==='Home')next=0;
+      else if(event.key==='End')next=tabs.length-1;
+      else if(event.key==='Enter'||event.key===' '){event.preventDefault();activate(index,false,true);return}
+      else return;
+      event.preventDefault();
+      activate(next,true,true);
+    });
+  });
+  panels.forEach((panel,index)=>{panel.id='itinerary-day-'+(index+1);panel.setAttribute('role','tabpanel')});
+  radios.forEach((radio,index)=>radio.addEventListener('change',()=>activate(index,false,true)));
+  activate(Math.max(0,radios.findIndex(radio=>radio.checked)),false,false);
+})();
+</script>
 </body></html>
