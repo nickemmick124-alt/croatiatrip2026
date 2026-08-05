@@ -17,265 +17,44 @@
 .photo-wrap{position:relative;border-radius:14px;overflow:hidden;min-height:596px;background:#dbe7e7}.photo{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}.photo-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(5,25,39,.17));pointer-events:none}.photo-label{position:absolute;left:18px;bottom:18px;background:rgba(7,33,52,.76);color:#fff;border:1px solid rgba(255,255,255,.18);padding:10px 13px;border-radius:999px;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase}
 .controls{display:flex;justify-content:space-between;gap:12px;margin-top:14px}.control{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:10px 15px;font-weight:800;cursor:pointer}.control.disabled{opacity:.35;cursor:default}
 .route{display:grid;grid-template-columns:1.45fr 1fr 1fr;gap:14px;margin-top:15px}.route-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px 19px;min-height:92px;box-shadow:0 10px 28px rgba(10,38,58,.06)}.route-card.dark{background:var(--navy);color:#fff}.route-card span{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--gold)}.route-card strong{display:block;margin-top:8px;font-size:.88rem;line-height:1.38}.footer{text-align:center;color:#68767e;font-size:.8rem;padding:0 20px 38px}
-#select-day-1:checked ~ .site .panel-1{display:grid}
-#select-day-1:checked ~ .site label[for="select-day-1"]{background:#eaf6f5;color:#0b6668}
-#select-day-2:checked ~ .site .panel-2{display:grid}
-#select-day-2:checked ~ .site label[for="select-day-2"]{background:#eaf6f5;color:#0b6668}
-#select-day-3:checked ~ .site .panel-3{display:grid}
-#select-day-3:checked ~ .site label[for="select-day-3"]{background:#eaf6f5;color:#0b6668}
-#select-day-4:checked ~ .site .panel-4{display:grid}
-#select-day-4:checked ~ .site label[for="select-day-4"]{background:#eaf6f5;color:#0b6668}
-#select-day-5:checked ~ .site .panel-5{display:grid}
-#select-day-5:checked ~ .site label[for="select-day-5"]{background:#eaf6f5;color:#0b6668}
-#select-day-6:checked ~ .site .panel-6{display:grid}
-#select-day-6:checked ~ .site label[for="select-day-6"]{background:#eaf6f5;color:#0b6668}
-#select-day-7:checked ~ .site .panel-7{display:grid}
-#select-day-7:checked ~ .site label[for="select-day-7"]{background:#eaf6f5;color:#0b6668}
-#select-day-8:checked ~ .site .panel-8{display:grid}
-#select-day-8:checked ~ .site label[for="select-day-8"]{background:#eaf6f5;color:#0b6668}
-#select-day-9:checked ~ .site .panel-9{display:grid}
-#select-day-9:checked ~ .site label[for="select-day-9"]{background:#eaf6f5;color:#0b6668}
+#select-day-1:checked ~ .site .panel-1{display:grid}#select-day-1:checked ~ .site label[for="select-day-1"]{background:#eaf6f5;color:#0b6668}
+#select-day-2:checked ~ .site .panel-2{display:grid}#select-day-2:checked ~ .site label[for="select-day-2"]{background:#eaf6f5;color:#0b6668}
+#select-day-3:checked ~ .site .panel-3{display:grid}#select-day-3:checked ~ .site label[for="select-day-3"]{background:#eaf6f5;color:#0b6668}
+#select-day-4:checked ~ .site .panel-4{display:grid}#select-day-4:checked ~ .site label[for="select-day-4"]{background:#eaf6f5;color:#0b6668}
+#select-day-5:checked ~ .site .panel-5{display:grid}#select-day-5:checked ~ .site label[for="select-day-5"]{background:#eaf6f5;color:#0b6668}
+#select-day-6:checked ~ .site .panel-6{display:grid}#select-day-6:checked ~ .site label[for="select-day-6"]{background:#eaf6f5;color:#0b6668}
+#select-day-7:checked ~ .site .panel-7{display:grid}#select-day-7:checked ~ .site label[for="select-day-7"]{background:#eaf6f5;color:#0b6668}
+#select-day-8:checked ~ .site .panel-8{display:grid}#select-day-8:checked ~ .site label[for="select-day-8"]{background:#eaf6f5;color:#0b6668}
+#select-day-9:checked ~ .site .panel-9{display:grid}#select-day-9:checked ~ .site label[for="select-day-9"]{background:#eaf6f5;color:#0b6668}
 @media(max-width:1050px){.layout{grid-template-columns:1fr}.sidebar{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.sidebar-title{min-width:180px}.day-tab{min-width:205px;grid-template-columns:28px minmax(0,1fr);scroll-snap-align:start}.day-tab img{display:none}.day-panel{grid-template-columns:1fr}.photo-wrap{min-height:520px;order:-1}.copy{padding:27px}.route{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.hero{height:285px}.nav{height:68px;padding:0 18px}.links,.group{display:none}.brand{font-size:1rem}.brand-icon{font-size:1.6rem}.hero-title{padding:38px 22px}.hero h1{font-size:clamp(3.25rem,14vw,4.7rem);white-space:nowrap}.hero p{font-size:.86rem;letter-spacing:.15em}.shell{padding:14px 10px 34px;margin:-18px auto 0}.sidebar-title{display:none}.day-tab{min-width:182px;padding:14px 12px}.panel{padding:9px}.photo-wrap{min-height:390px}.copy{padding:23px 18px 20px}.copy h2{font-size:2.7rem}.route{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<input class="day-radio" type="radio" name="selected-day" id="select-day-1" checked>
-<input class="day-radio" type="radio" name="selected-day" id="select-day-2" >
-<input class="day-radio" type="radio" name="selected-day" id="select-day-3" >
-<input class="day-radio" type="radio" name="selected-day" id="select-day-4" >
-<input class="day-radio" type="radio" name="selected-day" id="select-day-5" >
-<input class="day-radio" type="radio" name="selected-day" id="select-day-6" >
-<input class="day-radio" type="radio" name="selected-day" id="select-day-7" >
-<input class="day-radio" type="radio" name="selected-day" id="select-day-8" >
-<input class="day-radio" type="radio" name="selected-day" id="select-day-9" >
+<input class="day-radio" type="radio" name="selected-day" id="select-day-1" checked><input class="day-radio" type="radio" name="selected-day" id="select-day-2"><input class="day-radio" type="radio" name="selected-day" id="select-day-3"><input class="day-radio" type="radio" name="selected-day" id="select-day-4"><input class="day-radio" type="radio" name="selected-day" id="select-day-5"><input class="day-radio" type="radio" name="selected-day" id="select-day-6"><input class="day-radio" type="radio" name="selected-day" id="select-day-7"><input class="day-radio" type="radio" name="selected-day" id="select-day-8"><input class="day-radio" type="radio" name="selected-day" id="select-day-9">
 <div class="site">
-<header class="hero" id="overview" style="background-image:url('assets/hq/hero.png')">
-  <div class="nav"><div class="brand"><span class="brand-icon">⚓</span><div>Croatia Trip 2026<small>August 14 – 22, 2026</small></div></div><nav class="links"><a href="#overview">Overview</a><a href="#itinerary">Itinerary</a><a href="#boat">The Boat</a><a href="#travel">Travel Info</a></nav><a class="group" href="#trip">Our Group</a></div>
-  <div class="hero-title"><h1>Our Itinerary</h1><p>August 14 – 22, 2026</p><div class="hero-rule"></div></div>
+<header class="hero" id="overview" style="background-image:url('hero.webp')">
+<div class="nav"><div class="brand"><span class="brand-icon">⚓</span><div>Croatia Trip 2026<small>August 14 – 22, 2026</small></div></div><nav class="links"><a href="#overview">Overview</a><a href="#itinerary">Itinerary</a><a href="#boat">The Boat</a><a href="#travel">Travel Info</a></nav><a class="group" href="#trip">Our Group</a></div><div class="hero-title"><h1>Our Itinerary</h1><p>August 14 – 22, 2026</p><div class="hero-rule"></div></div>
 </header>
-<main class="shell" id="itinerary">
-  <div class="layout">
-    <aside class="sidebar"><div class="sidebar-title"><strong>Daily itinerary</strong><span>Select a day to see the current plan.</span></div><label class="day-tab" for="select-day-1">
-      <span class="icon">●</span>
-      <span><strong>Day 1</strong><small>Fri, Aug 14</small><em>Split</em></span>
-      <img src="assets/hq/day1.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-2">
-      <span class="icon">⛵</span>
-      <span><strong>Day 2</strong><small>Sat, Aug 15</small><em>Šolta</em></span>
-      <img src="assets/hq/day2.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-3">
-      <span class="icon">≈</span>
-      <span><strong>Day 3</strong><small>Sun, Aug 16</small><em>Vis</em></span>
-      <img src="assets/hq/day3.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-4">
-      <span class="icon">✦</span>
-      <span><strong>Day 4</strong><small>Mon, Aug 17</small><em>Šćedro</em></span>
-      <img src="assets/hq/day4.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-5">
-      <span class="icon">♢</span>
-      <span><strong>Day 5</strong><small>Tue, Aug 18</small><em>Korčula</em></span>
-      <img src="assets/hq/day5.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-6">
-      <span class="icon">♪</span>
-      <span><strong>Day 6</strong><small>Wed, Aug 19</small><em>Hvar</em></span>
-      <img src="assets/hq/day6.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-7">
-      <span class="icon">✧</span>
-      <span><strong>Day 7</strong><small>Thu, Aug 20</small><em>Hvar</em></span>
-      <img src="assets/hq/day7.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-8">
-      <span class="icon">⚓</span>
-      <span><strong>Day 8</strong><small>Fri, Aug 21</small><em>Milna</em></span>
-      <img src="assets/hq/day8.png" alt="">
-    </label>
-<label class="day-tab" for="select-day-9">
-      <span class="icon">▣</span>
-      <span><strong>Day 9</strong><small>Sat, Aug 22</small><em>Split</em></span>
-      <img src="assets/hq/day9.png" alt="">
-    </label></aside>
-    <section class="panel"><article class="day-panel panel-1">
-      <div class="copy">
-        <div class="eyebrow">Day 1 · Fri, Aug 14</div>
-        <h2>Friday, August 14</h2>
-        <div class="place">● &nbsp;Split</div>
-        <p class="intro">Arrive in Split and settle in at the AC Hotel by Marriott. Explore the Riva and old town before celebrating Keaton’s birthday with a waterfront dinner and a club night.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Check in at AC Hotel by Marriott Split</span></li><li><span class="check">✓</span><span>Explore Diocletian’s Palace, the old town and Riva</span></li><li><span class="check">✓</span><span>Restaurant Adriatic at 8:00 PM</span></li><li><span class="check">✓</span><span>Boiler Room Club afterward for Keaton’s birthday</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Restaurant Adriatic</strong><div>Friday, August 14 · 8:00 PM</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Restaurant%20Adriatic%20Split%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><span class="control disabled">← Previous day</span><label class="control" for="select-day-2">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day1.png" alt="Split arrival · Keaton’s birthday">
-        <div class="photo-shade"></div><div class="photo-label">Split arrival · Keaton’s birthday</div>
-      </div>
-    </article>
-<article class="day-panel panel-2">
-      <div class="copy">
-        <div class="eyebrow">Day 2 · Sat, Aug 15</div>
-        <h2>Saturday, August 15</h2>
-        <div class="place">● &nbsp;Šolta</div>
-        <p class="intro">Board Nautilus, settle into yacht life and spend the first full day swimming and cruising before dinner ashore in Maslinica.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Board Nautilus and settle in</span></li><li><span class="check">✓</span><span>Cruise, swim and relax</span></li><li><span class="check">✓</span><span>Confirm the yacht berth through marina reception</span></li><li><span class="check">✓</span><span>Martinis Marchi at 8:30 PM</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Martinis Marchi</strong><div>Saturday, August 15 · 8:30 PM</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Martinis%20Marchi%20Maslinica%20Solta%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-1">← Previous day</label><label class="control" for="select-day-3">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day2.png" alt="Board Nautilus · first island night">
-        <div class="photo-shade"></div><div class="photo-label">Board Nautilus · first island night</div>
-      </div>
-    </article>
-<article class="day-panel panel-3">
-      <div class="copy">
-        <div class="eyebrow">Day 3 · Sun, Aug 16</div>
-        <h2>Sunday, August 16</h2>
-        <div class="place">● &nbsp;Vis</div>
-        <p class="intro">A classic Croatia day with boat time, clear water, Vis Town and a memorable sunset dinner at Fort George.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Boat and swim time</span></li><li><span class="check">✓</span><span>Explore Vis Town and the harbor</span></li><li><span class="check">✓</span><span>Freshen up for sunset dinner</span></li><li><span class="check">✓</span><span>Fort George at 8:30 PM</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Fort George</strong><div>Sunday, August 16 · 8:30 PM</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Fort%20George%20Vis%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-2">← Previous day</label><label class="control" for="select-day-4">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day3.png" alt="Vis · swim, explore and sunset dinner">
-        <div class="photo-shade"></div><div class="photo-label">Vis · swim, explore and sunset dinner</div>
-      </div>
-    </article>
-<article class="day-panel panel-4">
-      <div class="copy">
-        <div class="eyebrow">Day 4 · Mon, Aug 17</div>
-        <h2>Monday, August 17</h2>
-        <div class="place">● &nbsp;Šćedro</div>
-        <p class="intro">Sonya’s birthday and the signature themed day of the trip: Black, White and Boat Games in a quiet Croatian cove, with Jake fully committed to cheetah attire.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Relaxed boat morning and swimming</span></li><li><span class="check">✓</span><span>Dress code: black, white or cheetah</span></li><li><span class="check">✓</span><span>Black, White and Boat Games onboard</span></li><li><span class="check">✓</span><span>Birthday dinner onboard</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Sonya’s Birthday</strong><div>Black, White and Boat Games · dinner onboard</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Scedro%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-3">← Previous day</label><label class="control" for="select-day-5">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day4.png" alt="Black, White and Boat Games">
-        <div class="photo-shade"></div><div class="photo-label">Black, White and Boat Games</div>
-      </div>
-    </article>
-<article class="day-panel panel-5">
-      <div class="copy">
-        <div class="eyebrow">Day 5 · Tue, Aug 18</div>
-        <h2>Tuesday, August 18</h2>
-        <div class="place">● &nbsp;Korčula</div>
-        <p class="intro">Meredith’s birthday combines a Croatian winery experience, Korčula Old Town and a polished waterfront dinner.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Croatian winery tour from 11:00 AM–3:30 PM</span></li><li><span class="check">✓</span><span>Explore Korčula Old Town</span></li><li><span class="check">✓</span><span>Time to shop, wander and take photos</span></li><li><span class="check">✓</span><span>Filippi at 7:30 PM</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Filippi</strong><div>Tuesday, August 18 · 7:30 PM</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Filippi%20Korcula%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-4">← Previous day</label><label class="control" for="select-day-6">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day5.png" alt="Meredith’s birthday · winery and Old Town">
-        <div class="photo-shade"></div><div class="photo-label">Meredith’s birthday · winery and Old Town</div>
-      </div>
-    </article>
-<article class="day-panel panel-6">
-      <div class="copy">
-        <div class="eyebrow">Day 6 · Wed, Aug 19</div>
-        <h2>Wednesday, August 19</h2>
-        <div class="place">● &nbsp;Hvar</div>
-        <p class="intro">Hvar at its best: town time, Hula Hula, sunset drinks and dinner at Don Quijote.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Explore Hvar Town</span></li><li><span class="check">✓</span><span>Hula Hula regular table</span></li><li><span class="check">✓</span><span>Drinks, food and sunset</span></li><li><span class="check">✓</span><span>Don Quijote at 8:00 PM</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Don Quijote</strong><div>Wednesday, August 19 · 8:00 PM</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Don%20Quijote%20Hvar%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-5">← Previous day</label><label class="control" for="select-day-7">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day6.png" alt="Hula Hula sunset · dinner in Hvar">
-        <div class="photo-shade"></div><div class="photo-label">Hula Hula sunset · dinner in Hvar</div>
-      </div>
-    </article>
-<article class="day-panel panel-7">
-      <div class="copy">
-        <div class="eyebrow">Day 7 · Thu, Aug 20</div>
-        <h2>Thursday, August 20</h2>
-        <div class="place">● &nbsp;Hvar</div>
-        <p class="intro">A relaxed yacht day that turns into the dress-up dinner and late-night club evening coordinated by Rahul.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Relaxed day on the boat</span></li><li><span class="check">✓</span><span>Get ready for the coordinated dinner look</span></li><li><span class="check">✓</span><span>Formal dinner with the group</span></li><li><span class="check">✓</span><span>Club around 1–2 AM</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Dress-up Dinner</strong><div>Details coordinated by Rahul</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hvar%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-6">← Previous day</label><label class="control" for="select-day-8">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day7.png" alt="Dress-up dinner · late-night club">
-        <div class="photo-shade"></div><div class="photo-label">Dress-up dinner · late-night club</div>
-      </div>
-    </article>
-<article class="day-panel panel-8">
-      <div class="copy">
-        <div class="eyebrow">Day 8 · Fri, Aug 21</div>
-        <h2>Friday, August 21</h2>
-        <div class="place">● &nbsp;Milna</div>
-        <p class="intro">Slow down for the final full yacht day, one last swim, a group toast and a relaxed final night onboard.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Swimming and final yacht day</span></li><li><span class="check">✓</span><span>Keep the afternoon flexible</span></li><li><span class="check">✓</span><span>Group toast and crew thank-you</span></li><li><span class="check">✓</span><span>Dinner onboard</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Final Night Onboard</strong><div>Friday evening</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Milna%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-7">← Previous day</label><label class="control" for="select-day-9">Next day →</label></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day8.png" alt="Final yacht day · group toast">
-        <div class="photo-shade"></div><div class="photo-label">Final yacht day · group toast</div>
-      </div>
-    </article>
-<article class="day-panel panel-9">
-      <div class="copy">
-        <div class="eyebrow">Day 9 · Sat, Aug 22</div>
-        <h2>Saturday, August 22</h2>
-        <div class="place">● &nbsp;Split</div>
-        <p class="intro">Disembark in Split, coordinate luggage and departures, and close out the trip without a rushed final morning.</p>
-        <div class="section-title">Day activities</div>
-        <ul class="activities"><li><span class="check">✓</span><span>Breakfast and packing</span></li><li><span class="check">✓</span><span>Review onboard costs and gratuity</span></li><li><span class="check">✓</span><span>Disembark in Split</span></li><li><span class="check">✓</span><span>Coordinate airport and onward travel</span></li></ul>
-        <div class="reservation">
-          <span>Plan highlight</span><strong>Check Out</strong><div>Saturday morning</div>
-          <a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Split%20Croatia">View on Google Maps ↗</a>
-        </div>
-        <div class="controls"><label class="control" for="select-day-8">← Previous day</label><span class="control disabled">Next day →</span></div>
-      </div>
-      <div class="photo-wrap">
-        <img class="photo" src="assets/hq/day9.png" alt="Return to Split · departures">
-        <div class="photo-shade"></div><div class="photo-label">Return to Split · departures</div>
-      </div>
-    </article></section>
-  </div>
-  <section class="route" id="trip"><div class="route-card dark"><span>Route summary</span><strong>Split → Šolta → Vis → Šćedro → Korčula → Hvar → Milna → Split</strong></div><div class="route-card" id="boat"><span>Our yacht</span><strong>Nautilus · our home on the Adriatic</strong></div><div class="route-card" id="travel"><span>Trip essentials</span><strong>AC Hotel Split · 14 guests · August 14–22</strong></div></section>
-</main>
-<div class="footer">Plans may adjust with weather and captain guidance. Reservations reflect the current itinerary.</div>
-</div>
-
+<main class="shell" id="itinerary"><div class="layout"><aside class="sidebar"><div class="sidebar-title"><strong>Daily itinerary</strong><span>Select a day to see the current plan.</span></div>
+<label class="day-tab" for="select-day-1"><span class="icon">●</span><span><strong>Day 1</strong><small>Fri, Aug 14</small><em>Split</em></span><img src="day1.webp" alt=""></label>
+<label class="day-tab" for="select-day-2"><span class="icon">⛵</span><span><strong>Day 2</strong><small>Sat, Aug 15</small><em>Šolta</em></span><img src="day2.webp" alt=""></label>
+<label class="day-tab" for="select-day-3"><span class="icon">≈</span><span><strong>Day 3</strong><small>Sun, Aug 16</small><em>Vis</em></span><img src="day3.webp" alt=""></label>
+<label class="day-tab" for="select-day-4"><span class="icon">✦</span><span><strong>Day 4</strong><small>Mon, Aug 17</small><em>Šćedro</em></span><img src="day4.webp" alt=""></label>
+<label class="day-tab" for="select-day-5"><span class="icon">♢</span><span><strong>Day 5</strong><small>Tue, Aug 18</small><em>Korčula</em></span><img src="day5.webp" alt=""></label>
+<label class="day-tab" for="select-day-6"><span class="icon">♪</span><span><strong>Day 6</strong><small>Wed, Aug 19</small><em>Hvar</em></span><img src="day6.webp" alt=""></label>
+<label class="day-tab" for="select-day-7"><span class="icon">✧</span><span><strong>Day 7</strong><small>Thu, Aug 20</small><em>Hvar</em></span><img src="day6.webp" alt=""></label>
+<label class="day-tab" for="select-day-8"><span class="icon">⚓</span><span><strong>Day 8</strong><small>Fri, Aug 21</small><em>Milna</em></span><img src="day8.webp" alt=""></label>
+<label class="day-tab" for="select-day-9"><span class="icon">▣</span><span><strong>Day 9</strong><small>Sat, Aug 22</small><em>Split</em></span><img src="day9.webp" alt=""></label>
+</aside><section class="panel">
+<article class="day-panel panel-1"><div class="copy"><div class="eyebrow">Day 1 · Fri, Aug 14</div><h2>Friday, August 14</h2><div class="place">● &nbsp;Split</div><p class="intro">Arrive in Split and settle in at the AC Hotel by Marriott. Explore the Riva and old town before celebrating Keaton’s birthday with a waterfront dinner and a club night.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Check in at AC Hotel by Marriott Split</span></li><li><span class="check">✓</span><span>Explore Diocletian’s Palace, the old town and Riva</span></li><li><span class="check">✓</span><span>Restaurant Adriatic at 8:00 PM</span></li><li><span class="check">✓</span><span>Boiler Room Club afterward for Keaton’s birthday</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Restaurant Adriatic</strong><div>Friday, August 14 · 8:00 PM</div></div></div><div class="photo-wrap"><img class="photo" src="day1.webp" alt="Split arrival"><div class="photo-label">Split arrival · Keaton’s birthday</div></div></article>
+<article class="day-panel panel-2"><div class="copy"><div class="eyebrow">Day 2 · Sat, Aug 15</div><h2>Saturday, August 15</h2><div class="place">● &nbsp;Šolta</div><p class="intro">Board Nautilus, settle into yacht life and spend the first full day swimming and cruising before dinner ashore in Maslinica.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Board Nautilus and settle in</span></li><li><span class="check">✓</span><span>Cruise, swim and relax</span></li><li><span class="check">✓</span><span>Confirm the yacht berth through marina reception</span></li><li><span class="check">✓</span><span>Martinis Marchi at 8:30 PM</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Martinis Marchi</strong><div>Saturday, August 15 · 8:30 PM</div></div></div><div class="photo-wrap"><img class="photo" src="day2.webp" alt="Board Nautilus"><div class="photo-label">Board Nautilus · first island night</div></div></article>
+<article class="day-panel panel-3"><div class="copy"><div class="eyebrow">Day 3 · Sun, Aug 16</div><h2>Sunday, August 16</h2><div class="place">● &nbsp;Vis</div><p class="intro">A classic Croatia day with boat time, clear water, Vis Town and a memorable sunset dinner at Fort George.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Boat and swim time</span></li><li><span class="check">✓</span><span>Explore Vis Town and the harbor</span></li><li><span class="check">✓</span><span>Freshen up for sunset dinner</span></li><li><span class="check">✓</span><span>Fort George at 8:30 PM</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Fort George</strong><div>Sunday, August 16 · 8:30 PM</div></div></div><div class="photo-wrap"><img class="photo" src="day3.webp" alt="Vis sunset"><div class="photo-label">Vis · swim, explore and sunset dinner</div></div></article>
+<article class="day-panel panel-4"><div class="copy"><div class="eyebrow">Day 4 · Mon, Aug 17</div><h2>Monday, August 17</h2><div class="place">● &nbsp;Šćedro</div><p class="intro">Sonya’s birthday and the signature themed day of the trip: Black, White and Boat Games in a quiet Croatian cove, with Jake fully committed to cheetah attire.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Relaxed boat morning and swimming</span></li><li><span class="check">✓</span><span>Dress code: black, white or cheetah</span></li><li><span class="check">✓</span><span>Black, White and Boat Games onboard</span></li><li><span class="check">✓</span><span>Birthday dinner onboard</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Sonya’s Birthday</strong><div>Dinner onboard</div></div></div><div class="photo-wrap"><img class="photo" src="day4.webp" alt="Black White and Boat Games"><div class="photo-label">Black, White and Boat Games</div></div></article>
+<article class="day-panel panel-5"><div class="copy"><div class="eyebrow">Day 5 · Tue, Aug 18</div><h2>Tuesday, August 18</h2><div class="place">● &nbsp;Korčula</div><p class="intro">Meredith’s birthday combines a Croatian winery experience, Korčula Old Town and a polished waterfront dinner.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Croatian winery tour from 11:00 AM–3:30 PM</span></li><li><span class="check">✓</span><span>Explore Korčula Old Town</span></li><li><span class="check">✓</span><span>Time to shop, wander and take photos</span></li><li><span class="check">✓</span><span>Filippi at 7:30 PM</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Filippi</strong><div>Tuesday, August 18 · 7:30 PM</div></div></div><div class="photo-wrap"><img class="photo" src="day5.webp" alt="Korcula winery"><div class="photo-label">Meredith’s birthday · winery and Old Town</div></div></article>
+<article class="day-panel panel-6"><div class="copy"><div class="eyebrow">Day 6 · Wed, Aug 19</div><h2>Wednesday, August 19</h2><div class="place">● &nbsp;Hvar</div><p class="intro">Hvar at its best: town time, Hula Hula, sunset drinks and dinner at Don Quijote.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Explore Hvar Town</span></li><li><span class="check">✓</span><span>Hula Hula regular table</span></li><li><span class="check">✓</span><span>Drinks, food and sunset</span></li><li><span class="check">✓</span><span>Don Quijote at 8:00 PM</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Don Quijote</strong><div>Wednesday, August 19 · 8:00 PM</div></div></div><div class="photo-wrap"><img class="photo" src="day6.webp" alt="Hvar sunset"><div class="photo-label">Hula Hula sunset · dinner in Hvar</div></div></article>
+<article class="day-panel panel-7"><div class="copy"><div class="eyebrow">Day 7 · Thu, Aug 20</div><h2>Thursday, August 20</h2><div class="place">● &nbsp;Hvar</div><p class="intro">A relaxed yacht day that turns into the dress-up dinner and late-night club evening coordinated by Rahul.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Relaxed day on the boat</span></li><li><span class="check">✓</span><span>Get ready for the coordinated dinner look</span></li><li><span class="check">✓</span><span>Formal dinner with the group</span></li><li><span class="check">✓</span><span>Club around 1–2 AM</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Dress-up Dinner</strong><div>Details coordinated by Rahul</div></div></div><div class="photo-wrap"><img class="photo" src="day6.webp" alt="Hvar night"><div class="photo-label">Dress-up dinner · late-night club</div></div></article>
+<article class="day-panel panel-8"><div class="copy"><div class="eyebrow">Day 8 · Fri, Aug 21</div><h2>Friday, August 21</h2><div class="place">● &nbsp;Milna</div><p class="intro">Slow down for the final full yacht day, one last swim, a group toast and a relaxed final night onboard.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Swimming and final yacht day</span></li><li><span class="check">✓</span><span>Keep the afternoon flexible</span></li><li><span class="check">✓</span><span>Group toast and crew thank-you</span></li><li><span class="check">✓</span><span>Dinner onboard</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Final Night Onboard</strong><div>Friday evening</div></div></div><div class="photo-wrap"><img class="photo" src="day8.webp" alt="Milna final night"><div class="photo-label">Final yacht day · group toast</div></div></article>
+<article class="day-panel panel-9"><div class="copy"><div class="eyebrow">Day 9 · Sat, Aug 22</div><h2>Saturday, August 22</h2><div class="place">● &nbsp;Split</div><p class="intro">Disembark in Split, coordinate luggage and departures, and close out the trip without a rushed final morning.</p><div class="section-title">Day activities</div><ul class="activities"><li><span class="check">✓</span><span>Breakfast and packing</span></li><li><span class="check">✓</span><span>Review onboard costs and gratuity</span></li><li><span class="check">✓</span><span>Disembark in Split</span></li><li><span class="check">✓</span><span>Coordinate airport and onward travel</span></li></ul><div class="reservation"><span>Plan highlight</span><strong>Check Out</strong><div>Saturday morning</div></div></div><div class="photo-wrap"><img class="photo" src="day9.webp" alt="Split departures"><div class="photo-label">Return to Split · departures</div></div></article>
+</section></div><section class="route" id="trip"><div class="route-card dark"><span>Route summary</span><strong>Split → Šolta → Vis → Šćedro → Korčula → Hvar → Milna → Split</strong></div><div class="route-card" id="boat"><span>Our yacht</span><strong>Nautilus · our home on the Adriatic</strong></div><div class="route-card" id="travel"><span>Trip essentials</span><strong>AC Hotel Split · 14 guests · August 14–22</strong></div></section></main><div class="footer">Plans may adjust with weather and captain guidance. Reservations reflect the current itinerary.</div></div>
 </body></html>
