@@ -2,7 +2,7 @@ name: Final gallery repair
 on:
   push:
     paths:
-      - 'image-chunks/FINAL_REPAIR'
+      - image-chunks/FINAL_REPAIR
 permissions:
   contents: write
 jobs:
@@ -11,26 +11,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Stabilize gallery images and mobile layout
-        shell: python
         run: |
+          python - <<'PY'
           from pathlib import Path
           import re
-          p=Path('index.html')
-          s=p.read_text()
-          b64={i:Path(f'image-chunks/photo{i}.b64').read_text().strip() for i in (1,2,3)}
-
-          replacements={
-            1:f'<img src="data:image/webp;base64,{b64[1]}" alt="Friends at dinner aboard the yacht" decoding="async">',
-            2:f'<img src="data:image/webp;base64,{b64[2]}" alt="Sunset drink on the yacht" decoding="async">',
-            3:f'<img src="data:image/webp;base64,{b64[3]}" alt="Friends relaxing with wine on deck" decoding="async">',
+          p = Path('index.html')
+          s = p.read_text()
+          b64 = {i: Path(f'image-chunks/photo{i}.b64').read_text().strip() for i in (1,2,3)}
+          labels = {
+              1: 'Friends at dinner aboard the yacht',
+              2: 'Sunset drink on the yacht',
+              3: 'Friends relaxing with wine on deck',
           }
           for i in (1,2,3):
-            s=re.sub(r'<img[^>]*data-b64="image-chunks/photo%d\.b64"[^>]*>'%i,replacements[i],s)
-
-          # Remove obsolete fetch loader now that image data is embedded directly.
-          s=re.sub(r'\n*<script>document\.querySelectorAll\(\'\[data-b64\]\'\).*?</script>','',s,flags=re.S)
-
-          css='''
+              tag = f'<img src="data:image/webp;base64,{b64[i]}" alt="{labels[i]}" decoding="async">'
+              s = re.sub(r'<img[^>]*data-b64="image-chunks/photo%d\.b64"[^>]*>' % i, tag, s)
+          s = re.sub(r'\n*<script>document\.querySelectorAll\(\'\[data-b64\]\'\).*?</script>', '', s, flags=re.S)
+          css = r'''
 /* Gallery stability + mobile polish */
 .live-grid{max-width:1180px;margin:0 auto;padding:16px;gap:14px;align-items:stretch}
 .live-shot{margin:0;min-height:0;aspect-ratio:4/5;border-radius:18px;background:#102f43;box-shadow:0 14px 34px rgba(0,0,0,.18)}
@@ -40,26 +37,13 @@ jobs:
 .live-caption{left:16px;right:16px;bottom:15px}
 .live-caption strong{font-size:clamp(1.08rem,2vw,1.35rem);line-height:1.05}
 .live-caption span{font-size:.67rem;line-height:1.25}
-@media(max-width:800px){
-  .live-grid{grid-template-columns:1fr 1fr;padding:12px;gap:12px}
-  .live-shot{aspect-ratio:4/5;min-height:0}
-  .live-shot:nth-child(3){grid-column:1/-1;aspect-ratio:16/10;min-height:0}
-}
-@media(max-width:520px){
-  .live-head{padding:23px 20px 18px;gap:14px}
-  .live-grid{grid-template-columns:1fr;padding:10px;gap:12px}
-  .live-shot,.live-shot:nth-child(3){grid-column:auto;width:100%;height:auto;min-height:0;aspect-ratio:4/5;border-radius:16px}
-  .live-shot:nth-child(3){aspect-ratio:4/3}
-  .live-caption{left:14px;right:14px;bottom:13px}
-  .live-caption strong{font-size:1.13rem}
-  .live-caption span{font-size:.62rem}
-  .fun-update{margin:2px 10px 12px;padding:15px 16px}
-  .photo-note{padding:0 14px 18px}
-}
+@media(max-width:800px){.live-grid{grid-template-columns:1fr 1fr;padding:12px;gap:12px}.live-shot{aspect-ratio:4/5;min-height:0}.live-shot:nth-child(3){grid-column:1/-1;aspect-ratio:16/10;min-height:0}}
+@media(max-width:520px){.live-head{padding:23px 20px 18px;gap:14px}.live-grid{grid-template-columns:1fr;padding:10px;gap:12px}.live-shot,.live-shot:nth-child(3){grid-column:auto;width:100%;height:auto;min-height:0;aspect-ratio:4/5;border-radius:16px}.live-shot:nth-child(3){aspect-ratio:4/3}.live-caption{left:14px;right:14px;bottom:13px}.live-caption strong{font-size:1.13rem}.live-caption span{font-size:.62rem}.fun-update{margin:2px 10px 12px;padding:15px 16px}.photo-note{padding:0 14px 18px}}
 '''
           if '/* Gallery stability + mobile polish */' not in s:
-            s=s.replace('</style>',css+'</style>')
+              s = s.replace('</style>', css + '</style>')
           p.write_text(s)
+          PY
       - name: Commit final repair
         run: |
           git config user.name "github-actions[bot]"
