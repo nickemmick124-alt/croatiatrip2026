@@ -1,0 +1,34 @@
+name: Fix live gallery mobile
+on:
+  push:
+    paths:
+      - 'image-chunks/FIX_MOBILE'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repair gallery images and mobile cards
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('src="assets/live/photo1-hq.webp" width="1152" height="1536" alt="Friends at dinner aboard the yacht" loading="lazy" decoding="async"','class="loading" data-b64="image-chunks/photo1.b64" alt="" aria-label="Friends at dinner aboard the yacht"')
+          s=s.replace('src="assets/live/photo2-hq.webp" width="1152" height="1536" alt="Sunset drink on the yacht" loading="lazy" decoding="async"','class="loading" data-b64="image-chunks/photo2.b64" alt="" aria-label="Sunset drink on the yacht"')
+          s=s.replace('src="assets/live/photo3-hq.webp" width="1536" height="1152" alt="Friends relaxing with wine on deck" loading="lazy" decoding="async"','class="loading" data-b64="image-chunks/photo3.b64" alt="" aria-label="Friends relaxing with wine on deck"')
+          s=s.replace('.live-shot{position:relative;border-radius:16px;overflow:hidden;min-height:330px;background:#15374b}', '.live-shot{position:relative;border-radius:16px;overflow:hidden;min-height:330px;background:#15374b;margin:0}')
+          s=s.replace('@media(max-width:520px){.live-grid{grid-template-columns:1fr}.live-shot,.live-shot:last-child{grid-column:auto;min-height:340px}.fun-update{align-items:flex-start}.photo-jump{font-size:.68rem}}', '@media(max-width:520px){.live-grid{grid-template-columns:1fr}.live-shot,.live-shot:last-child{grid-column:auto;min-height:0;height:clamp(330px,92vw,430px);margin:0}.live-caption strong{font-size:1.18rem}.live-caption span{font-size:.66rem}.fun-update{align-items:flex-start}.photo-jump{font-size:.68rem}}')
+          loader='''\n<script>document.querySelectorAll('[data-b64]').forEach(async img=>{try{const b=await fetch(img.dataset.b64,{cache:'no-store'}).then(r=>r.text());img.src='data:image/webp;base64,'+b.trim();img.classList.remove('loading')}catch(e){img.classList.remove('loading');img.style.opacity='.18'}});</script>\n'''
+          if "querySelectorAll('[data-b64]')" not in s:
+              s=s.replace('</body>',loader+'</body>')
+          p.write_text(s)
+      - name: Commit repair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Fix live gallery images on mobile"
+          git push
