@@ -1,0 +1,47 @@
+name: Upgrade Croatia gallery quality
+on:
+  push:
+    paths:
+      - 'image-chunks/HQ_READY'
+permissions:
+  contents: write
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Switch gallery to high-quality images
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+
+          s = s.replace(
+              '<img class="loading" data-b64="image-chunks/photo1.b64" alt="Friends at dinner aboard the yacht">',
+              '<img src="assets/live/photo1-hq.webp" width="1152" height="1536" alt="Friends at dinner aboard the yacht" loading="lazy" decoding="async">'
+          )
+          s = s.replace(
+              '<img class="loading" data-b64="image-chunks/photo2.b64" alt="Sunset drink on the yacht">',
+              '<img src="assets/live/photo2-hq.webp" width="1152" height="1536" alt="Sunset drink on the yacht" loading="lazy" decoding="async">'
+          )
+          s = s.replace(
+              '<img class="loading" data-b64="image-chunks/photo3.b64" alt="Friends relaxing with wine on deck">',
+              '<img src="assets/live/photo3-hq.webp" width="1536" height="1152" alt="Friends relaxing with wine on deck" loading="lazy" decoding="async">'
+          )
+
+          s = s.replace(
+              '.live-shot img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:saturate(1.08) contrast(1.04);transform:scale(1.01)}',
+              '.live-shot img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;filter:none;transform:none;image-rendering:auto}'
+          )
+
+          loader = "<script>document.querySelectorAll('[data-b64]').forEach(async img=>{try{const b=await fetch(img.dataset.b64).then(r=>r.text());img.src='data:image/webp;base64,'+b.trim();img.classList.remove('loading')}catch(e){img.alt+=' (photo loading unavailable)'}});</script>"
+          s = s.replace(loader, '')
+          p.write_text(s)
+      - name: Commit quality upgrade
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Use high-quality live gallery photos"
+          git push
