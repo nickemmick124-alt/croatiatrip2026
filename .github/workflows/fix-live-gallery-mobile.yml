@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Repair gallery images and mobile cards
-        shell: python
         run: |
+          cat > /tmp/repair.py <<'PY'
           from pathlib import Path
           p=Path('index.html')
           s=p.read_text()
@@ -42,6 +42,8 @@ jobs:
               b=s.index('</script>',a)+9
               s=s[:a]+s[b:]
           p.write_text(s)
+          PY
+          python /tmp/repair.py
       - name: Commit repair
         run: |
           git config user.name "github-actions[bot]"
