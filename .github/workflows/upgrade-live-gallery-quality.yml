@@ -1,0 +1,51 @@
+name: Upgrade live gallery quality
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'image-chunks/HQ_GALLERY_TRIGGER'
+
+permissions:
+  contents: write
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build higher quality gallery assets
+        shell: bash
+        run: |
+          cat image-chunks/hq400-dj-01.txt image-chunks/hq400-dj-02.txt > image-chunks/photo4.b64
+          cat image-chunks/hq400-sunset-01.txt image-chunks/hq400-sunset-02.txt image-chunks/hq400-sunset-03.txt > image-chunks/photo2.b64
+          cat image-chunks/hq400-deck-01.txt image-chunks/hq400-deck-02.txt image-chunks/hq400-deck-03.txt > image-chunks/photo3.b64
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          old_css = '.live-grid{padding:14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.live-shot{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:#15374b;margin:0}.live-shot img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 38%;filter:none;transform:none;image-rendering:auto}'
+          new_css = '.live-grid{padding:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}.live-shot{position:relative;border-radius:16px;overflow:hidden;background:#15374b;margin:0}.live-shot.portrait{aspect-ratio:3/4}.live-shot.landscape{aspect-ratio:4/3}.live-shot img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;filter:none;transform:none;image-rendering:auto}'
+          if old_css not in s:
+              raise SystemExit('Expected gallery CSS not found')
+          s = s.replace(old_css, new_css, 1)
+          s = s.replace('@media(max-width:520px){.live-grid{grid-template-columns:1fr}.live-shot{aspect-ratio:3/4;margin:0}', '@media(max-width:520px){.live-grid{grid-template-columns:1fr}.live-shot{margin:0}', 1)
+
+          new_grid = '''<div class="live-grid"><figure class="live-shot portrait"><img class="loading" data-b64="image-chunks/photo4.b64" alt="" aria-label="Guest at the yacht DJ booth"><figcaption class="live-caption"><strong>The booth is officially open</strong><span>Day two · DJ deck takeover</span></figcaption></figure><figure class="live-shot portrait"><img class="loading" data-b64="image-chunks/photo2.b64" alt="" aria-label="Sunset drink on deck"><figcaption class="live-caption"><strong>Golden hour understood the assignment</strong><span>Sunset · Adriatic standard operating procedure</span></figcaption></figure><figure class="live-shot landscape"><img class="loading" data-b64="image-chunks/photo3.b64" alt="" aria-label="Friends relaxing with drinks on deck"><figcaption class="live-caption"><strong>This is the pace now</strong><span>Rosé · sea breeze · zero urgency</span></figcaption></figure></div><div class="fun-update">'''
+          s, n = re.subn(r'<div class="live-grid">.*?</div><div class="fun-update">', new_grid, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit(f'Expected one gallery grid, replaced {n}')
+          p.write_text(s, encoding='utf-8')
+          PY
+          rm -f image-chunks/hq400-*.txt image-chunks/hq-dj-01.txt image-chunks/HQ_GALLERY_TRIGGER
+
+      - name: Publish upgrade
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html image-chunks
+          git commit -m "Upgrade live gallery image quality"
+          git push
